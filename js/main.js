@@ -1,7 +1,8 @@
 let ddt = 8000
 let dtg = 7500
 let tasaFija = 1200
-
+//LO IDEAL EN EL USERNAME seria usar alguna base de datos tipo sql o algun documentread
+let userName = ["pedro", "juan", "roberto"]
 
 function calcHonorarios(metCuadrados){
     if (metCuadrados > 0 && metCuadrados <= 100){
@@ -35,7 +36,7 @@ function calcHonorarios(metCuadrados){
         honorarios = ((4 * ddt) + (7 * dtg)) * 1.55
     }
     else if (metCuadrados >= 10001 && metCuadrados <= 15000){
-        honorarios = ((4 * ddt) + (7 * dtg)) * 1.70
+            honorarios = ((4 * ddt) + (7 * dtg)) * 1.70
     }
     else if (metCuadrados >= 15001 && metCuadrados <= 20000){
         honorarios = ((4 * ddt) + (7 * dtg)) * 1.90
@@ -53,7 +54,6 @@ function calcHonorarios(metCuadrados){
     else
         alert("valor colocado Incorrecto o mayor a 40.001m2")
 }
-
 function calcTasas(honorarios){
     //Calculo de la primera tasa
     if (honorarios <= 36000){
@@ -71,7 +71,6 @@ function calcTasas(honorarios){
 
     totalGastos = tasa1 + tasa2 + aforo + tasaFija
     }
-
 function cotizacion(){
         let metCuadrados = parseInt(prompt("Ingrese la cantidad de metros cuadrados a trabajar"))
         calcHonorarios(metCuadrados)
@@ -82,19 +81,47 @@ function cotizacion(){
         alert(`los gastos seran de ${totalGastos}`)
         let total = totalGastos + honorarios
         alert(`y el total a pagar sera de ${total}`)
-    }
-    
+    }   
 function contacto(){
         alert(`Señor/a ${nombre}, nuestro numero de contacto es +54 9 3512632938`)
-    }
-    
+    }    
 function conocernos(){
         alert(`Señor/a ${nombre}, nos ubicamos en Cordoba, Velez Sarsfield 2300`)
     
     }
+function register (nombre){
+    
+    //en userName estaria una base de datos con sql o algun document read q todavia no se como se usa en JS
+    addUser = userName.indexOf(nombre)
+    if (addUser == -1){
+        alert("Usuario no registrado")
+        registrar = confirm("Le gustaria registrar un usuario?")
+        if (registrar){
+            registerUser = prompt("Ingrese el usuario a registrar")
+            if (userName.includes(registerUser)){
+                alert("ERROR USUARIO YA REGISTRADO")
+            }else{
+                userName.push(registerUser)
+                alert("Usuario registrado con exito")
+            }
+        }else{
+            alert("CERRANDO EL PROGRAMA. MUCHAS GRACIAS")
+        }
+    }
+}
 
+//INICIO DEL PROGRAMA !
 alert("Bienvenido a mi programa de habilitacion de higiene y seguridad")
 nombre = prompt("Ingrese su nombre")
+nombre = nombre.toLowerCase()
+if (userName.includes(nombre)){
+    alert("Usuario autorizado")
+}
+else{
+    alert("Usuario desautorizado")
+    register(nombre)
+    nombre = registerUser
+}
 do {
     opcion = prompt(`Señor/a ${nombre} ingrese 1 - Para cotizar su habilitacion, 2 - Para contactarnos o 3 - para conocer donde estamos`)
     if (opcion == 1){
