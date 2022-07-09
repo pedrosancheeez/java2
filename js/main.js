@@ -1,8 +1,11 @@
+
+let contador = 0
 let ddt = 8000
 let dtg = 7500
 let tasaFija = 1200
 //LO IDEAL EN EL USERNAME seria usar alguna base de datos tipo sql o algun documentread
 let userName = ["pedro", "juan", "roberto"]
+let adminPasw = "44475567"
 
 function calcHonorarios(metCuadrados){
     if (metCuadrados > 0 && metCuadrados <= 100){
@@ -108,6 +111,31 @@ function register (nombre){
             alert("CERRANDO EL PROGRAMA. MUCHAS GRACIAS")
         }
     }
+    }
+function admin (){
+    do{
+    pasw = prompt("Ingrese su contraseña de administrador")
+    if (pasw == adminPasw){
+    alert("Bienvenido al menu de administrador")
+    adminOpt = prompt("Que accion desea hacer 1- modificar los precios de honorarios")
+    if (adminOpt == 1){
+        ddt = parseInt(prompt("Ingrese el costo del dia de trabajo"))
+        dtg = parseInt(prompt("Ingrese el costo del dia de trabajo en gabinete"))
+        intentar = false
+        contador = 4
+    }
+    }else{
+        alert("CONTRASEÑA INCORRECTA")
+        intentar = confirm("Desea volver a intentar?")        
+        if (intentar){
+        intentos = 2 - contador
+        alert(`Tienes solo ${intentos} intentos`)
+        contador = contador + 1
+        }else{
+            alert("Cerrando el programa")
+        }
+    }
+}while(intentar && contador < 3)
 }
 
 //INICIO DEL PROGRAMA !
@@ -123,7 +151,7 @@ else{
     nombre = registerUser
 }
 do {
-    opcion = prompt(`Señor/a ${nombre} ingrese 1 - Para cotizar su habilitacion, 2 - Para contactarnos o 3 - para conocer donde estamos`)
+    opcion = prompt(`Señor/a ${nombre} ingrese 1 - Para cotizar su habilitacion, 2 - Para contactarnos  3 - para conocer donde estamos o 4- para funciones de administrador`)
     if (opcion == 1){
         cotizacion()
     }
@@ -133,6 +161,9 @@ do {
     else if (opcion == 3){
         conocernos()
         
+    }
+    else if (opcion==4){
+        admin()
     }
     else{
         alert("OPCION INCORRECTA")
