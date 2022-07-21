@@ -84,22 +84,18 @@ function cotizacion(){
         alert(`los gastos seran de ${totalGastos}`)
         let total = totalGastos + honorarios
         alert(`y el total a pagar sera de ${total}`)
-    }   
-function contacto(){
-        alert(`Señor/a ${nombre}, nuestro numero de contacto es +54 9 3512632938`)
-    }    
-function conocernos(){
-        alert(`Señor/a ${nombre}, nos ubicamos en Cordoba, Velez Sarsfield 2300`)
-    
+
+        decision = confirm("Desea volver a digitar una opcion? ")
+    if(decision){
+        avanzar()
     }
+    }   
+    
+
 function register (nombre){
     
     //en userName estaria una base de datos con sql o algun document read q todavia no se como se usa en JS
-    addUser = userName.indexOf(nombre)
-    if (addUser == -1){
-        alert("Usuario no registrado")
-        registrar = confirm("Le gustaria registrar un usuario?")
-        if (registrar){
+    
             registerUser = prompt("Ingrese el usuario a registrar")
             if (userName.includes(registerUser)){
                 alert("ERROR USUARIO YA REGISTRADO")
@@ -107,20 +103,25 @@ function register (nombre){
                 userName.push(registerUser)
                 alert("Usuario registrado con exito")
             }
-        }else{
-            alert("CERRANDO EL PROGRAMA. MUCHAS GRACIAS")
+            avanzar()
         }
-    }
-    }
+    
+    
+    
 function admin (){
     do{
     pasw = prompt("Ingrese su contraseña de administrador")
     if (pasw == adminPasw){
     alert("Bienvenido al menu de administrador")
-    adminOpt = prompt("Que accion desea hacer 1- modificar los precios de honorarios")
+    adminOpt = prompt("Que accion desea hacer 1- modificar los precios de honorarios 2- crear un nuevo usuario")
     if (adminOpt == 1){
         ddt = parseInt(prompt("Ingrese el costo del dia de trabajo"))
         dtg = parseInt(prompt("Ingrese el costo del dia de trabajo en gabinete"))
+        intentar = false
+        contador = 4
+    }
+    if (adminOpt == 2){
+        register(nombre)
         intentar = false
         contador = 4
     }
@@ -136,40 +137,45 @@ function admin (){
         }
     }
 }while(intentar && contador < 3)
-}
-
-//INICIO DEL PROGRAMA !
-alert("Bienvenido a mi programa de habilitacion de higiene y seguridad")
-nombre = prompt("Ingrese su nombre")
-nombre = nombre.toLowerCase()
-if (userName.includes(nombre)){
-    alert("Usuario autorizado")
-}
-else{
-    alert("Usuario desautorizado")
-    register(nombre)
-    nombre = registerUser
-}
-do {
-    opcion = prompt(`Señor/a ${nombre} ingrese 1 - Para cotizar su habilitacion, 2 - Para contactarnos  3 - para conocer donde estamos o 4- para funciones de administrador`)
-    if (opcion == 1){
-        cotizacion()
-    }
-    else if (opcion == 2){
-        contacto()
-    }
-    else if (opcion == 3){
-        conocernos()
-        
-    }
-    else if (opcion==4){
-        admin()
-    }
-    else{
-        alert("OPCION INCORRECTA")
-    }
     decision = confirm("Desea volver a digitar una opcion? ")
+    if(decision){
+        avanzar()
+    }
+}
+menuOpciones = document.getElementById("menuOpciones")
+menuOpciones.style.display="none"
+const botonLogin = document.getElementById("buttonLogin")
+botonLogin.addEventListener("click", obtenerDatos)
 
-}while (decision)
+function obtenerDatos (){
+    decision = document.getElementById("decision")
+    nombre = document.getElementById("nombre").value
+    if (userName.includes(nombre)){
+            decision.style= "color: blue;"
+            decision.innerHTML = "<p>Iniciando sesión</p>"
+            setTimeout(avanzar(), 1000);
+        }
+        else{
+            decision.style = "color: red;"
+            decision.innerHTML = "<p>Usuario incorrecto o no registrado</p>"
+            setTimeout(() => {
+                registrar =  confirm("Desea crear un nuevo usuario?")
+                if(registrar){
+                    admin()
+                }
+            }, 1000);
+            
+            
+        }
+}
 
-alert (`Muchas gracias ${nombre} por usar nuestro programa. Hasta luego`)
+
+function avanzar(){
+    //do {
+        console.log("SSS")
+        menuOpciones.style.display = "block"
+        desaparecerLogin = document.getElementById("desaparecer")
+        desaparecerLogin.style.display = "none"
+}
+
+//alert (`Muchas gracias ${nombre} por usar nuestro programa. Hasta luego`)

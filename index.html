@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="loginFondo">
+    <div class="container " id="desaparecer">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-5">
+                <div class="card px-5 py-5 fondoForm" id="form1">
+                    <div class="form-data" v-if="!submitted">
+                        <div class="forms-inputs mb-5"> <span>Escriba aqui su nombre</span> <input id="nombre" autocomplete="off" type="text">    
+                        </div>
+                        <div class="mb-3"> <button class="btn btn-dark w-100"id="buttonLogin" type="button">Login</button> </div>
+                        <div id="decision">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="menuOpciones">
+        <div class="botonesOpcion">
+        <button type="button" id="cotizar" class="botonMenu" onclick="cotizacion()">
+            Cotizar
+        </button>
+        <button type="button" id="contacto" class="botonMenu" onclick="contacto()">
+            Contacto
+        </button>
+        <button type="button" id="admin" class="botonMenu" onclick="admin()">
+            Admin
+        </button>
+    </div>
+    </div>
+</div>
+    
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
