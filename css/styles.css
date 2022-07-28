@@ -1,34 +1,187 @@
-
-
-.loginFondo{background: whitesmoke;
-            top: 0;
-            height: 100vh;
-
-}.card{border: solid 2px black;height: 250px;padding-top: 20%;}.forms-inputs{position: relative}.forms-inputs span{position: absolute;top:-18px;left: 10px;background-color: #fff;padding: 5px 10px;font-size: 15px}.forms-inputs input{height: 50px;border: 2px solid #eee}.forms-inputs input:focus{box-shadow: none;outline: none;border: 2px solid #000}.btn{height: 50px}.success-data{display: flex;flex-direction: column}.bxs-badge-check{font-size: 90px}
-.fondoForm{
-    margin-top: 90px;
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: whitesmoke;
 }
 
+.loginFondo{
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: center;}
+.sombra{
+    margin: 0;
+    padding: 0;
+    background: url(/img/1_VT_Qgj0ogVzdytM4_PdnoQ.jpeg);
+    background-size: cover;
+    
+    width: 100%;
+    height: 100vh;
+}
 #menuOpciones{
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
     width: 100%;
     height: 100vh;
 
 }
+#nombre{
+    width: 100%;
+}
 .botonesOpcion{
-    margin-top: 40px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     margin: auto;
-    gap: auto;
-    padding: 40px;
-    height: 400px;
     width: 400px;
-    background-color: rgb(66, 62, 255);
+    height: 400px;
+    padding: 40px;
+    
+    background-color: rgb(255, 255, 255);
+}
+.botonesOpcion p {
+    font-weight: bold;
 }
 .botonMenu{
-    background-color: rgba(205, 228, 74, 0.637);
+    
+    background-color: rgb(233, 255, 108);
     font-size: 20px;
     width: 100%;
     padding: 30px;
+}
+
+/*html cotizacion*/
+
+.prueba{
+
+    width: 400px;
+    height: 200px;
+}
+.formCotizar{
+    
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    color: white;
+    height: 200px;
+}
+
+/*html cotizacion */
+
+.hoja{
+    width: 800px;
+    height: 1000px; 
+    margin: auto;
+    margin-top: 60px;
+    background-color: wheat;
+    border: solid 2px black;
+    border-radius: 40px;
+}
+
+
+.headerHoja h1 {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.dataCotizacion{
+    width: 100%;
+    display: flex;
+    justify-content:space-around
+}
+
+.dataCotizacion h2 {
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+    margin-left: 30px;
+}
+.logo{
+    margin-right: 30px;
+}
+.logo h3{
+    font-size: 14px;
+}
+.documento{
+    margin-top: 40px;
+    margin-inline: 80px;
+    font-size: 15px;
+}
+.infoCotizacion{
+    margin-top: 20px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.nombreCliente,.nombreNegocio,.ubicacionNegocio,.emailCliente,.metCuad,.tipoCotizacion,.honorarios,.gastos,.total{
+    margin-inline: 80px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.nombreCliente p,.nombreNegocio p,.ubicacionNegocio p,.emailCliente p,.metCuad p,.tipoCotizacion p,.honorarios p,.gastos p,.total p{
+    padding: 1px;
+    font-weight: bold;
+}
+
+
+.footerCotizacion{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 450px;
+    margin-inline: 80px;
+}
+.botonDescarga{
+    top: 0;
+    right: 0;
+    position:fixed;
+}
+.containerVolver{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 90px;
+    background-color: whitesmoke;
+    margin: 40px;
+}
+.imagenDescarga{
+    height: 50px;
+    width: 50px;
+}
+
+#tipoHoja{
+    font-size: 14px;
+}
+
+/*styles de admin.html*/
+
+.containerMenu{
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+}
+.adminMenu{
+    z-index: 99999;
+    width: 400px;
+    height: 300px;
+    background-color: blue;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+.adminMenu button{
+    padding: 20px;
 }
