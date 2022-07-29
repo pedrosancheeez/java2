@@ -146,13 +146,19 @@ body{
     position:fixed;
 }
 .containerVolver{
+    display: flex;
     position: fixed;
+    
     left: 0;
     top: 0;
     height: 50px;
-    width: 90px;
-    background-color: whitesmoke;
-    margin: 40px;
+}
+.containerVolver a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    background-color: black;
 }
 .imagenDescarga{
     height: 50px;
@@ -185,3 +191,27 @@ body{
 .adminMenu button{
     padding: 20px;
 }
+.preciosTrabajo{
+    padding: 30px;
+    margin: auto;
+    margin-top: 40px;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 40px;
+}
+#tipoCosto{
+    padding: 10px;
+    margin: 10px;
+}
+.register{
+    padding: 30px;
+    margin: auto;
+    margin-top: 40px;
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border-radius: 40px;
+    
+}
+

@@ -1,5 +1,5 @@
-let ddt = localStorage.getItem("ddt")
-let dtg = localStorage.getItem("dtg")
+let ddt = parseInt(localStorage.getItem("ddt"))
+let dtg = parseInt(localStorage.getItem("dtg"))
 
 console.log(ddt)
 function calcHonorarios(metCuadrados){

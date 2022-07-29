@@ -17,7 +17,7 @@
                     <div class="col-md-5">
                         <div class="card px-5 py-5 fondoForm" id="form1">
                             <div class="form-data" v-if="!submitted">
-                                <div class="forms-inputs mb-5"> <span>Escriba aqui su contraseña de administrador</span> <input id="adminPsw" autocomplete="off" type="text">    
+                                <div class="forms-inputs mb-5"> <span>Escriba aqui su contraseña de administrador</span> <input id="adminPsw" autocomplete="off" type="password">    
                                 </div>
                                 <div class="mb-3"> <button class="btn btn-dark w-100"id="btnAdmin" type="button">Login</button></div>
                                 <p id="loginData">
@@ -28,22 +28,49 @@
                     </div>
                 </div>       
             </div>
-            <div class="containerMenu">
+            <div class="containerMenu" id="containerAdmin">
                 <div class="adminMenu" id="adminMenu">
-                    <button type="button" class="btn btn-light w-100" id="costoTrabajo">
+                    <button type="submit" class="btn btn-light w-100" id="costoTrabajo">
                         Cambiar costo de dia de trabajo
                     </button>
-                    <button type="button" class="btn btn-light w-100" id="registrar">
+                    <button type="button" class="btn btn-light w-100" id="registrarUser">
                         Crear un nuevo usuario
                     </button>
                     <button type="button" class="btn btn-success w-100">
                         PROXIMAMENTE
                     </button>
+                    <a href="cotizar.html" class="btn btn-success w-100">
+                        Generar cotizacion
+                    </a>
                 </div>
+                <div class="preciosTrabajo" id="preciosTrabajo">
+                    <form>
+                        <select name="tipoCosto" id="tipoCosto" class="row mb-5">
+                            <option value="1">Dia de trabajo</option>
+                            <option value="2">Dia de trabajo en gabinete</option>
+                        </select>
+                        <input type="text" aria-required="true" id="costoNuevo">
+                        <button type="button" class="btn btn-primary" id="modificarCosto">Modificar</button>
+                    </form>
+                </div> 
+                <div class="register" id="register">
+                    <form>
+                        <p>REGISTRAR UN USUARIO</p>
+                        <label for="adminPsw">Ingrese nuevamente AdminPasw</label>
+                        <input type="password" id="registerPsw" aria-required="true">
+                        <label for="usuario">Ingrese el nuevo usuario</label>
+                        <input type="text" id="newUser" aria-required="true">
+                        <p id="registerDatos">
+
+                        </p>
+                        <button type="button" class="btn btn-primary btn-block" id="registerBtn">Registrar</button>
+                    </form>
                 </div>
-                <div class="containerVolver">
-                    <a href="/index.html">VOLVER AL INICIO</a>
-                </div>
+            </div>
+            <div class="containerVolver">
+                <a href="/index.html">VOLVER AL INICIO</a>
+                <a href="cotizar.html">Hacer nueva cotizacion</a>
+            </div>       
     
 
 </div>
