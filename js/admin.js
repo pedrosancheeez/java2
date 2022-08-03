@@ -36,13 +36,7 @@ function costos(){
         function cambiarCostos(){
             tipoCosto = parseInt(document.getElementById("tipoCosto").value)
             costoNuevo = parseInt(document.getElementById("costoNuevo").value)
-        if (tipoCosto == 1){
-            console.log(costoNuevo)
-            localStorage.setItem("ddt", parseInt(costoNuevo))
-        }else if (tipoCosto == 2){
-            console.log("dtg")
-            localStorage.setItem("dtg", parseInt(costoNuevo))
-        }
+            tipoCosto == 1 ? localStorage.setItem("ddt", parseInt(costoNuevo)) : localStorage.setItem("dtg", parseInt(costoNuevo))
         }
 }
 containerAdmin.style.display = "none"
