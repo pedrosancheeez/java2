@@ -25,7 +25,13 @@ function obtenerDatos (){
     if (users.includes(nombre)){
             decision.style= "color: blue;"
             decision.innerHTML = "<p>Iniciando sesión</p>"
-            
+            Swal.fire({
+                title: `Contraseña correcta!`,
+                text: `Logueando...`,
+                icon: `success`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             setTimeout(() => {avanzar()
             }, 1000);
             
@@ -33,6 +39,12 @@ function obtenerDatos (){
         else{
             decision.style = "color: red;"
             decision.innerHTML = "<p>Usuario incorrecto o no registrado</p>"
+            Swal.fire({
+                title: `Error!`,
+                text: `Contraseña incorrecta`,
+                icon: `error`,
+                confirmButtonText: `Volver a intentar`
+            })
             setTimeout(() => {
                 registrar =  confirm("Desea crear un nuevo usuario?")
                 if(registrar){

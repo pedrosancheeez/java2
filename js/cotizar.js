@@ -1,6 +1,7 @@
 let ddt = parseInt(localStorage.getItem("ddt"))
 let dtg = parseInt(localStorage.getItem("dtg"))
-
+const DateTime = luxon.DateTime
+const dt = DateTime.now()
 console.log(ddt)
 function calcHonorarios(metCuadrados){
     if (metCuadrados > 0 && metCuadrados <= 100){
@@ -49,8 +50,14 @@ function calcHonorarios(metCuadrados){
         honorarios = ((4 * ddt) + (7 * dtg)) * 2.5
     }
     
-    else
-        console.log("valor colocado Incorrecto o mayor a 40.001m2")
+    else{
+        honorarios_base = ((4 * ddt) + (7 * dtg)) * 2.5
+        i = (metCuadrados - 40000)/ 10000
+        i = Math.trunc(i)+ 1
+        let adicional = i*0.1
+        
+        honorarios = parseInt(honorarios_base + (honorarios_base * adicional))
+    }
 }
 function calcTasas(honorarios){
     //Calculo de la primera tasa
@@ -75,6 +82,7 @@ function calcTasas(honorarios){
     let hoja = document.getElementById("hoja")
     hoja.style.display = "none"
 function cotizacion(){
+        
         let nombreCliente = document.getElementById("nombreCliente").value
         let nombreNegocio = document.getElementById("nombreNegocio").value
         let ubicacionNegocio = document.getElementById("ubicacionNegocio").value
@@ -83,7 +91,9 @@ function cotizacion(){
         let cotizacionTipo = parseInt(document.getElementById("cotizacionTipo").value)
         //VARIABLES PARA GENERAR HOJA
 
-        
+        let fechaCotizacion = document.getElementById("fechaCotizacion")
+        fechaActual = dt.toLocaleString()
+        alert(fechaActual)
         let clienteHoja = document.getElementById("clienteHoja")
         let negocioHoja = document.getElementById("negocioHoja")
         let ubicacionHoja = document.getElementById("ubicacionHoja")
@@ -98,8 +108,8 @@ function cotizacion(){
         
         ////////////////////////////////////////////////////////////////
         calcHonorarios(metCuadrados)
-        if (metCuadrados> 40001 || isNaN(metCuadrados)){
-            alert("valor colocado Incorrecto o mayor a 40.001m2")
+        if (metCuadrados< 1 || isNaN(metCuadrados)){
+            alert("valor colocado Incorrecto")
         }else{
             sombra = document.getElementById("sombra")
             loginFondo = document.getElementById("loginFondo")
@@ -124,6 +134,8 @@ function cotizacion(){
             }
             let total = totalGastos + honorarios
             hoja.style.display = "block"
+            
+            fechaCotizacion.innerHTML = `${fechaActual}`
             tipoHoja.innerHTML = `<p>${tipoHojaDato}</p>`
             clienteHoja.innerHTML = `<p>${nombreCliente}</p>`
             negocioHoja.innerHTML = `<p>${nombreNegocio}</p>`

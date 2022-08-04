@@ -96,6 +96,7 @@ body{
 }
 
 .dataCotizacion h2 {
+    font-weight: bold;
     font-size: 16px;
     text-align: left;
     width: 100%;

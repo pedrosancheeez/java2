@@ -23,7 +23,15 @@ function registrar (){
                 users.push(newUser)
                 registerDatos.style = "color: blue;"
                 registerDatos.innerHTML = "<p>Usuario registrado con EXITO</p>"
-                console.log(users)
+                Toastify({
+                    text: `Hola ${newUser}`,
+                    duration: 3000,
+                    gravity: `bottom`,
+                    position: `right`,
+                    style: {
+                        background: `linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)`
+                    }
+                }).showToast();
             }
         }
 }
@@ -51,6 +59,13 @@ function admin (){
         loginData = document.getElementById("loginData")
         loginData.style = "color: blue;"
         loginData.innerHTML = "<p>Iniciando sesion</p>"
+        Swal.fire({
+            title: `Contraseña correcta!`,
+            text: `Logueando...`,
+            icon: `success`,
+            showConfirmButton: false,
+            timer: 1500
+        })
         containerAdmin.style.display = "block"
         adminMenu.style.display = "block"
         desaparecerAdmin = document.getElementById("desaparecerAdmin")
@@ -62,6 +77,12 @@ function admin (){
         costoTrabajo.addEventListener("click", costos)
     }
     else{
+        Swal.fire({
+            title: `Error!`,
+            text: `Contraseña incorrecta`,
+            icon: `error`,
+            confirmButtonText: `Volver a intentar`
+        })
         loginData = document.getElementById("loginData")
         loginData.style = "color : red;"
         loginData.innerHTML = "<p>Contraseña incorrecta</p>"
